@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contatti - Andrea Immacolato</title>
+    <meta name="description" content="Pagina contatti di Andrea Immacolato, web developer. Contattami per migliorare la tua presenza online e rinnovare il tuo sito web.">
+    <meta property="og:title" content="Contatta Andrea Immacolato - Web Developer">
+    <meta property="og:description" content="Se hai un progetto o una domanda, non esitare a contattarmi. Sono disponibile per discutere le tue idee e trovare la soluzione digitale più adatta.">
+    <meta property="og:image" content=> <!-- inserire immagine -->
+    <meta property="og:url" content="https://andreaimmacolato.github.io/Progetto_HTML_CSS/contacts.html">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Moderustic:wght@300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/img/icon/favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js" defer></script>
+    <script src="assets/js/scripts.js" defer></script> 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+    <script type="text/javascript" defer>
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "V3kg07cVk72XZxI67",
+            });
+        })();
+    </script>
+    <script type="text/javascript" defer>
+         window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                emailjs.sendForm('service_8n9u4fd', 'template_g6q9q0i', this)
+                    .then(function(response) {
+                        console.log('Email inviata con successo!', response);
+                        document.getElementById('success-message').innerText = 'Grazie! Il tuo messaggio è stato inviato con successo.';
+                        document.getElementById('success-message').style.display = 'block';
+                        document.getElementById('error-message').style.display = 'none';
+                
+                        document.getElementById('contact-form').reset();
+                    }, function(error) {
+                        console.log('Errore durante l\'invio dell\'email:', error);
+
+                        document.getElementById('error-message').innerText = 'Si è verificato un errore durante l\'invio del messaggio. Riprova più tardi.';
+                        document.getElementById('error-message').style.display = 'block';
+                        document.getElementById('success-message').style.display = 'none';
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#AboutMe">About me</a></li>
+            <li><a href="index.html#HowCan">How can I help you</a></li>
+            <li><a href="index.html#Contacts">Contacts</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li class="mt-2"><a href="contacts.html">Have a project for me?</a></li>
+            <li><a href="contacts.html" class="button">Let's talk</a></li>
+        </ul>
+        <div class="hamburger">
+            <span class="span"></span><span class="span"></span><span class="span"></span><span class="span"></span>
+        </div>
+    </div>
+
+    <div class="contacts">
+        <div class="contacts__title mt-2 reveal">
+            <h3 class="big-text tw">LET'S TALK</h3>
+        </div>
+        <div class="contacts__text reveal mt-1">
+            <h4 class="normal-text">Vuoi scoprire come migliorare la tua presenza online?</h4>
+            <p>Analizziamo insieme le <b>aspettative</b>, <b>gli obiettivi</b> e le tue <b>esigenze</b>. <br> Conoscere la situazione di partenza mi consentirà di proporti delle <b>soluzioni personalizzate</b> adatte alle tue esigenze.</p>
+            <h4 class="normal-text mt-1">Crea o rinnova il tuo sito web rendendolo mobile-friendly</h4>
+            <p>Sempre più persone utilizzano il proprio smartphone per visitare le pagine web, bisogna essere pronti e fare in modo che gli utenti riescano a navigare in modo fluido e agevole anche da un dispositivo con uno schermo dalle dimensioni ridotte.</p>
+        </div>
+    </div>
+
+    <h1 class="form__title reveal">Inserisci i tuoi dati qui</h1>
+<div class="form reveal">
+    <form id="contact-form">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" id="name" name="from_name" placeholder="Inserisci il tuo nome e cognome" required>
+        <label for="email" class="form-label">Indirizzo Email</label>
+        <input type="email" id="email" name="from_email" placeholder="Inserisci il tuo indirizzo email" required>
+        <label for="message" class="form-label">Messaggio</label>
+        <textarea id="message" name="message" placeholder="Inserisci il tuo messaggio" rows="4" required></textarea>
+        <input type="submit" value="Invia Richiesta">
+    </form>
+    <div id="success-message" class="message"></div>
+    <div id="error-message" class="message"></div>
+</div>
+
+    <footer class="footer">
+        <a name="Contacts" href=""></a>
+        <div class="footer__grid">
+            <div class="col mt-1 reveal">
+                <h4 class="normal-text tw">Contacts</h4>
+                <p>Compila il form per contattarmi</p>
+                <a href="contacts.html" class="button">Scrivimi qui</a>
+                <br><br>
+                <p>Turin, Italy</p>
+            </div>
+            <div class="col mt-1 reveal">
+                <h4 class="normal-text tw">Follow me</h4>
+                <img src="assets/img/png/me.png" alt="Foto di Andrea Immacolato" class="photo-profile">
+                <div class="social-bar">
+                  <a href="https://www.linkedin.com/in/andrea-immacolato-97290820/" class="social-icon" target="_blank">
+                    <img src="assets/img/icon/linkedin.png" alt="LinkedIn" class="img-res">
+                  </a>
+                  <a href="https://www.instagram.com/immacolatoandrea?igsh=MTM1ano0ZndrNmVkdw%3D%3D&utm_source=qr" class="social-icon" target="_blank">
+                    <img src="assets/img/icon/instagram.png" alt="Instagram" class="img-res">
+                  </a>
+                  <a href="https://www.facebook.com/andrea.immacolato/" class="social-icon" target="_blank">
+                    <img src="assets/img/icon/facebook.png" alt="Facebook" class="img-res">
+                  </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
